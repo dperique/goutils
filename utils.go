@@ -7,13 +7,13 @@ import (
 	"sync"
 )
 
-func checkErr(err error) {
+func CheckErrFatal(err error) {
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
 
-func askFirst() {
+func AskFirst() {
 	fmt.Print("Enter 'yes' to continue: ")
 	var response string
 	_, err := fmt.Scan(&response)
@@ -30,13 +30,13 @@ type Counter struct {
 	val int
 }
 
-func (c *Counter) incr() {
+func (c *Counter) Incr() {
 	c.m.Lock()
 	defer c.m.Unlock()
 	c.val++
 }
 
-func (c *Counter) getVal() int {
+func (c *Counter) GetVal() int {
 	c.m.Lock()
 	defer c.m.Unlock()
 	return c.val
