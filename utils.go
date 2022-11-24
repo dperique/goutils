@@ -17,7 +17,7 @@ func AskFirst() {
 	fmt.Print("Enter 'yes' to continue: ")
 	var response string
 	_, err := fmt.Scan(&response)
-	CheckErr(err)
+	CheckErrFatal(err)
 	if response == "yes" {
 		return
 	}
